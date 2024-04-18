@@ -57,7 +57,7 @@ with open(output_file, 'w') as file:
     file.write("Election Results\n")
     file.write("----------------------------\n")
     file.write(f"Total Votes: {total_votes}\n")
-    file.write(f"Charles Casper Stockham: {CCS_vote_share}% ({CCS_votes}\n")
+    file.write(f"Charles Casper Stockham: {CCS_vote_share}% ({CCS_votes})\n")
     file.write(f"Diana DeGette: {DD_vote_share}% ({DD_votes})\n")
     file.write(f"Raymon Anthony Doane: {RAD_vote_share}% ({RAD_votes})\n")
     file.write("----------------------------\n")
