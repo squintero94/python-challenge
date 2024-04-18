@@ -28,6 +28,14 @@ with open(election_csv) as csv_file:
         CCS_vote_share = round((CCS_votes / total_votes) * 100, 3)
         DD_vote_share = round((DD_votes / total_votes) * 100, 3)
         RAD_vote_share = round((RAD_votes / total_votes) * 100, 3)
+ # Find Winner
+if (CCS_votes > DD_votes) & (CCS_votes > RAD_votes):
+    winner = str("Charles Casper Stockham")
+elif (DD_votes > CCS_votes) & (DD_votes > RAD_votes):
+    winner = str("Diana DeGette")
+elif (RAD_votes > CCS_votes) & (RAD_votes > DD_votes):
+    winner = str("Raymon Anthony Doane")
+                               
 
 # Print the Result to the Terminal
 print("Election Results")
@@ -38,3 +46,23 @@ print(f"Charles Casper Stockham: {CCS_vote_share}% ({CCS_votes})")
 print(f"Diana DeGette: {DD_vote_share}% ({DD_votes})")
 print(f"Raymon Anthony Doane: {RAD_vote_share}% ({RAD_votes})")
 print("----------------------------")
+print(f"Winner: {winner}")
+print("----------------------------")
+
+# Define the output file path
+output_file = os.path.join("PyPoll_Results.txt")
+
+# Write the results to a text file
+with open(output_file, 'w') as file:
+    file.write("Election Results\n")
+    file.write("----------------------------\n")
+    file.write(f"Total Votes: {total_votes}\n")
+    file.write(f"Charles Casper Stockham: {CCS_vote_share}% ({CCS_votes}\n")
+    file.write(f"Diana DeGette: {DD_vote_share}% ({DD_votes})\n")
+    file.write(f"Raymon Anthony Doane: {RAD_vote_share}% ({RAD_votes})\n")
+    file.write("----------------------------\n")
+    file.write(f"Winner: {winner}\n")
+    file.write("----------------------------\n")
+
+# Print a message to confirm the export
+print("Results have been exported to 'PyPoll_Results.txt'")
