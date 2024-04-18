@@ -41,7 +41,7 @@ with open(budget_csv) as csv_file:
     if len(changes_in_profit_losses) > 0:
         average_change = sum(changes_in_profit_losses) / len(changes_in_profit_losses)
 
-
+# Print the Result to the Terminal
     print("Financial Analysis")
     print("----------------------------")
     print(f"Total Months: {total_months}")
@@ -50,3 +50,18 @@ with open(budget_csv) as csv_file:
     print(f"Greatest Increase in Profits: {greatest_increase_date} (${greatest_increase_amount})")
     print(f"Greatest Decrease in Profits: {greatest_decrease_date} (${greatest_decrease_amount})")
 
+# Define the output file path
+output_file = os.path.join("PyBank_Results.txt")
+
+# Write the results to a text file
+with open(output_file, 'w') as file:
+    file.write("Financial Analysis\n")
+    file.write("----------------------------\n")
+    file.write(f"Total Months: {total_months}\n")
+    file.write(f"Total: ${total_profit_losses}\n")
+    file.write(f"Average Change: ${average_change:.2f}\n")
+    file.write(f"Greatest Increase in Profits: {greatest_increase_date} (${greatest_increase_amount})\n")
+    file.write(f"Greatest Decrease in Profits: {greatest_decrease_date} (${greatest_decrease_amount})\n")
+
+# Print a message to confirm the export
+print("Results have been exported to 'PyBank_Results.txt'")
