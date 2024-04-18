@@ -24,12 +24,17 @@ with open(election_csv) as csv_file:
             DD_votes += 1
         elif row[2] == "Raymon Anthony Doane":
             RAD_votes += 1
+        # Calculate Vote %
+        CCS_vote_share = round((CCS_votes / total_votes) * 100, 3)
+        DD_vote_share = round((DD_votes / total_votes) * 100, 3)
+        RAD_vote_share = round((RAD_votes / total_votes) * 100, 3)
 
 # Print the Result to the Terminal
 print("Election Results")
 print("----------------------------")
 print(f"Total Votes: {total_votes}")
 print("----------------------------")
-print(f"Charles Casper Stockham: {CCS_votes}")
-print(f"Diana DeGette: {DD_votes}")
-print(f"Raymon Anthony Doane: {RAD_votes}")
+print(f"Charles Casper Stockham: {CCS_vote_share}% ({CCS_votes})")
+print(f"Diana DeGette: {DD_vote_share}% ({DD_votes})")
+print(f"Raymon Anthony Doane: {RAD_vote_share}% ({RAD_votes})")
+print("----------------------------")
