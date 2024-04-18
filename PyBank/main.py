@@ -8,6 +8,10 @@ total_months = 0
 total_profit_losses = 0
 changes_in_profit_losses = []
 previous_profit_loss = 0
+greatest_increase_amount = 0
+greatest_increase_date = ""
+greatest_decrease_amount = 0
+greatest_decrease_date = ""
 
 # Open and read csv
 with open(budget_csv) as csv_file:
@@ -24,6 +28,14 @@ with open(budget_csv) as csv_file:
         if previous_profit_loss != 0:
             change = current_profit_loss - previous_profit_loss
             changes_in_profit_losses.append(change)
+            # Check for greatest increase
+            if change > greatest_increase_amount:
+                greatest_increase_amount = change
+                greatest_increase_date = row[0]
+            # Check for greatest decrease
+            if change < greatest_decrease_amount:
+                greatest_decrease_amount = change
+                greatest_decrease_date = row[0]
         previous_profit_loss = current_profit_loss
     average_change = 0
     if len(changes_in_profit_losses) > 0:
@@ -35,4 +47,6 @@ with open(budget_csv) as csv_file:
     print(f"Total Months: {total_months}")
     print(f"Total: ${total_profit_losses}")
     print(f"Average Change: ${average_change:.2f}")
+    print(f"Greatest Increase in Profits: {greatest_increase_date} (${greatest_increase_amount})")
+    print(f"Greatest Decrease in Profits: {greatest_decrease_date} (${greatest_decrease_amount})")
 
