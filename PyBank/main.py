@@ -3,7 +3,7 @@ import csv
 
 budget_csv = os.path.join("..", "Starter_Code 4", "PyBank", "Resources", "budget_data.csv")
 
-# Counter Variable for Total Months
+# Establish Counter / Capture Variables
 total_months = 0
 total_profit_losses = 0
 changes_in_profit_losses = []

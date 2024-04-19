@@ -1,1 +1,3 @@
-# python-challenge
+# I referenced the graduation_functions_solution.py to help with the intial setup and for a bit of guidance with some things like setting up the "for Row in csv_reader:" loop and printing the results. 
+
+# The only other resource I utilized was Xpert AI which was a tremendous help. When I felt lost or stuck, I would explain what my issue was and what I was trying to accomplish. It was very helpful for troubleshooting errors and typos.
